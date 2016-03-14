@@ -31,39 +31,40 @@ div {
     border-radius: 5px 5px;
 }
 
-.buttons {
-    display: inline-block; 
-}
-
-
-#enter{
-    width: 50px;
-    height: 20px;
-    text-align: center;
-	padding: 10px;
-	color: #ffffff;
-	border-radius: 5px 5px;
-	background-color: #cc0328;
-}
-
-#reset{
-    width: 50px;
-    height: 20px;
-    text-align: center;
-	padding: 10px;
-	color: #ffffff;
-	border-radius: 5px 5px;
-	background-color: skyblue;    
+#input{
     
 }
 
-#hint{
-    width: 50px;
-    height: 20px;
+.buttons {
+    display: inline-block;
+    font-size: 13px;
     text-align: center;
-	padding: 10px;
-	color: #ffffff;
-	border-radius: 5px 5px;
-	background-color: forestgreen;    
+    width: 65px;
+    height: 30px;
+    border-radius: 5px 5px;
+    color: #ffffff;
+}
+
+
+#submit{
+	background-color: #cc0328;
+    border-style: none;
+}
+
+#reset{
+	background-color: skyblue;
+    border-style: none;
+}
+
+#hint{
+	background-color: forestgreen; 
+    border-style: none;
+}
+
+#msg{
+    
+}
+
+#timesLeft{
     
 }

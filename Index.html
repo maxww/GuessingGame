@@ -3,6 +3,7 @@
 <html>
     <head>
         <link style="text/css" rel="stylesheet" href="main.css" />
+        <script src="jquery-1.12.1.js"></script>
         <script src="guessingGame.js"></script>
         <title>Guessing Game</title>
     </head>
@@ -22,17 +23,19 @@
         </p></div>
         
         <div class="center">
-        <input class="enter_area"></input>
+        <input class="enter_area" id="input"></input>
         </div>
        
         <div class="center">
-        <div class="buttons" id="enter">enter</div>
-        <div class="buttons" id="reset">reset</div>  
-        <div class="buttons" id="hint">hint</div>
+        <button class="buttons" id="submit" onclick="playersGuessSubmission()">submit</button>
+        <button class="buttons" id="reset">reset</button>  
+        <button class="buttons" id="hint" onclick="provideHint()">hint</button>
+        <p class="center" id="msg"></p>
+        <p class="center" id="timesLeft">5 times left</p>
         </div>
         
         
-    <p class="center">message: </p>
+    
     
     </body>
 </html>
