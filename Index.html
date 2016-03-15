@@ -9,29 +9,33 @@
     </head>
     <body>
         <h1 class="center">Welcome to The Guessing Game</h1>
-        <p class="center">guess from 1 - 100!</p>.
+        <h3 class="center">guess from 1 - 100!</h3>
         
         <div id="rules"><p>Here's How You Play:
         <ul>
-            <li>enter a number between 1 - 100 in the box below.</li>
-            <li>if the number you guessed is far away from our answer, we'll say "colder."</li>
-            <li>else, we'll say "hotter."</li>
+            <li>enter a number between 1 - 100 in the box below</li>
+            <li>if your answer is wrong, we'll give you some feedback on it</li>
             <li>you have only 5 chances to guess</li>
-            <li>you can also hit the "hint" button for the correct answer.</li>
+            <li>you can also hit the "hint" button for some help</li>
             <li>HAVE FUN!</li>
         </ul>
         </p></div>
         
         <div class="center">
-        <input class="enter_area" id="input"></input>
+        <input class="enter_area" id="input" type="text" placeholder="enter the number here"></input>
         </div>
        
         <div class="center">
         <button class="buttons" id="submit" onclick="playersGuessSubmission()">submit</button>
-        <button class="buttons" id="reset" onclick="playAgain()">reset</button>  
         <button class="buttons" id="hint" onclick="provideHint()">hint</button>
+        <button class="buttons" id="reset" onclick="playAgain()">reset</button>  
+        
+        </div>
+
+        <div>
+        <p class="center" id="timesLeft">5 times left</p>    
+        <p class="center" id="guessedArr"></p>
         <p class="center" id="msg"></p>
-        <p class="center" id="timesLeft">5 times left</p>
         </div>
         
         

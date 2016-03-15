@@ -14,26 +14,65 @@ function generateRandomNumber(){
     return Math.floor(Math.random()*(100 - 1 +1)) + 1;
 }
 
-// Fetch the Players Guess
 
+// input area hit Return key can also submit the answer
+function hitReturnToSubmit(){
+    $("#input").on(function(event){
+        if (event.keyCode == 13){
+            $("#submit").click();
+        }
+    })
+}
+
+// Fetch the Players Guess 
 function playersGuessSubmission(){    
     playersGuess = parseInt($("#input").val());
     $("input").val("");
     checkGuess();
-    playersGuess = 0;
+}
 
+// Check if the Player's Guess is the winning number 
+
+function checkGuess(){
+    guessMessage();
+    if (playersGuess === winningNumber){
+        window.location.replace("winnersPage.html");
+        }else{
+        guessMessage();
+        }
+
+    if (guessArr.indexOf(playersGuess) === -1){
+        guessCounts++;
+        timesLeft--;
+        }else{
+        $("#msg").text("you just guessed the same number...");
+        }
+    
     if (timesLeft > 0){
         $("#timesLeft").text(timesLeft + " times left");
     }else{
-        $("#timesLeft").text("sorry, try again!");
         $("#submit").attr("disabled", "disabled");
+        $("input").attr("disabled", "disabled");
+        window.location.replace("losersPage.html");   
     }
+            
+    guessArr.push(playersGuess);
+    $("#guessedArr").text("What you've enetered: " + guessArr);
     
+    guessMessage();
 }
 
 // Determine if the next guess should be a lower or higher number
 
 function lowerOrHigher(){
+    if (playersGuess < winningNumber){
+        return "lower";
+    } else {
+        return "higher";  
+    } 
+}
+
+function guessMessage(){
     var distance = Math.abs(playersGuess - winningNumber);
     var digit;
     if (distance <= 5){
@@ -46,40 +85,13 @@ function lowerOrHigher(){
         digit = 20;
     }
     
-    if(playersGuess > winningNumber){
-        if(digit < 20){
-            $("#msg").text("Your guess is higher and within " + digit + " digits away from the Winning Number!")
-        }else{
-            $("#msg").text("Your guess is higher and more than " + digit + " digits away from the Winning Number!")
-        }
-    }else{
-        if(digit < 20){
-            $("#msg").text("Your guess is lower and within " + digit + " digits away from the Winning Number!")
-        }else{
-            $("#msg").text("Your guess is lower and less than " + digit + " digits away from the Winning Number!")
-        }   
+    if(digit < 20){
+        $("#msg").text("Your guess is " + lowerOrHigher() + " and within " + digit + " digits away from the Winning Number!");
+    } else {
+        $("#msg").text("Your guess is " + lowerOrHigher() + " and more than 20 digits away from the Winning Number!");        
     }
 }
 
-
-// Check if the Player's Guess is the winning number 
-
-function checkGuess(){
-    if (playersGuess === winningNumber){
-        $("#msg").text("Awesome Guess! You Won!");
-        }else{
-        lowerOrHigher();
-        }
-
-    if (guessArr.indexOf(playersGuess) === -1){
-        guessCounts++;
-        timesLeft--;
-        }else{
-        $("#msg").text("you just guessed the same number...");
-        }
-            
-    guessArr.push(playersGuess);
-}
 
 // Create a provide hint button that provides additional clues to the "Player"
 function generateHintArr(num){
@@ -110,16 +122,25 @@ function provideHint(){
 // Allow the "Player" to Play Again
 
 function playAgain(){
-    playersGuess = 0;
-    winningNumber = generateWinningNumber();
-    guessArr = [];
-    guessCounts = 0;
-    timesLeft = 5;
-    $("#msg").text("");
-    $("#timesLeft").text("5 times left");
-    $("#submit").removeAttr("disabled");
+    window.location.replace("Index.html");
 }
 
 
 /* **** Event Listeners/Handlers ****  */
 
+// input area
+$(document).ready(function(){
+    $("input").data("holder", $("input").attr("placeholder"));
+    $("input").focusin(function(){
+        $(this).attr("placeholder", "");
+    });
+    $("input").focusout(function(){
+        $(this).attr("placeholder", $(this).data("holder"));
+    });
+    
+    $("input").on("keyup", function(event){
+        if(event.keyCode === 13){
+            playersGuessSubmission();
+        }
+    })
+});

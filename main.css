@@ -7,11 +7,10 @@ div {
     margin-right: auto;
 }
 
-.center{
+.center {
     text-align: center;
     width: auto;
     height: 50px;
-    border-radius: 5%
 }
 
 #rules {
@@ -61,10 +60,23 @@ div {
     border-style: none;
 }
 
+
+#guessedArr{
+    margin-top: -30px;
+}
+
 #msg{
+    margin-top: -30px;
+
+}
+
+#timesLeft{    
+
     
 }
 
-#timesLeft{
-    
+.winnersLosersPage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
