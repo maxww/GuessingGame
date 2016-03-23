@@ -27,39 +27,45 @@ function hitReturnToSubmit(){
 // Fetch the Players Guess 
 function playersGuessSubmission(){    
     playersGuess = parseInt($("#input").val());
+    if (isNaN(playersGuess) ){
+        alert("you must enter a number!");
+    }   else {
+        checkGuess();
+    }
+
     $("input").val("");
-    checkGuess();
+    
 }
 
 // Check if the Player's Guess is the winning number 
 
 function checkGuess(){
-    guessMessage();
     if (playersGuess === winningNumber){
         window.location.replace("winnersPage.html");
-        }else{
+    } else {
         guessMessage();
-        }
+    }
 
     if (guessArr.indexOf(playersGuess) === -1){
         guessCounts++;
+        guessArr.push(playersGuess);
         timesLeft--;
-        }else{
+        guessMessage();
+    } else {
         $("#msg").text("you just guessed the same number...");
-        }
+    }
     
-    if (timesLeft > 0){
-        $("#timesLeft").text(timesLeft + " times left");
-    }else{
+    if (timesLeft > 1){
+        $("#timesLeft").text(timesLeft + " guesses left");
+    } else if (timesLeft === 1){
+        $("#timesLeft").text(timesLeft + " guess left");
+    } else{
         $("#submit").attr("disabled", "disabled");
         $("input").attr("disabled", "disabled");
-        window.location.replace("losersPage.html");   
+        window.location.replace("losersPage.html"); 
     }
             
-    guessArr.push(playersGuess);
-    $("#guessedArr").text("What you've enetered: " + guessArr);
-    
-    guessMessage();
+    $("#guessedArr").text("Numbers you've entered: " + guessArr);
 }
 
 // Determine if the next guess should be a lower or higher number
@@ -77,15 +83,15 @@ function guessMessage(){
     var digit;
     if (distance <= 5){
         digit = 5;
-    }else if (distance >5 && distance <=10){
+    } else if (distance >5 && distance <=10){
         digit = 10;
-    }else if (distance > 10 && distance <=15){
+    } else if (distance > 10 && distance <=15){
         digit = 15;
-    }else{
+    } else {
         digit = 20;
     }
     
-    if(digit < 20){
+    if (digit < 20){
         $("#msg").text("Your guess is " + lowerOrHigher() + " and within " + digit + " digits away from the Winning Number!");
     } else {
         $("#msg").text("Your guess is " + lowerOrHigher() + " and more than 20 digits away from the Winning Number!");        
@@ -116,7 +122,7 @@ function generateHintMsg(num){
 
 function provideHint(){
     generateHintMsg(timesLeft*2);
-    
+    $("#hint").removeAttr("onclick");   
 }
 
 // Allow the "Player" to Play Again
@@ -139,7 +145,7 @@ $(document).ready(function(){
     });
     
     $("input").on("keyup", function(event){
-        if(event.keyCode === 13){
+        if (event.keyCode === 13) {
             playersGuessSubmission();
         }
     })
