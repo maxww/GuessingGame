@@ -1,52 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset = "utf-8">
-        <title>Guessing Game</title>
-         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/css/bootstrap-theme.css">
-        <link style="text/css" rel="stylesheet" href="/css/main.css" />
-        <script src="/jquery/jquery-2.2.1.js"></script>
-        <script src="/js/guessingGame.js"></script>
-        
-    </head>
-    <body class="container">
-        <header>
-            <h1>Welcome to The Guessing Game</h1>
-            <h3>guess from 1 - 100!</h3>
-        </header>
-            
-    
-        <section id="rules">
-            <ul>
+
+<head>
+    <meta charset="utf-8">
+    <title>Guessing Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.css">
+    <link style="text/css" rel="stylesheet" href="/css/main.css" />
+    <script src="/jquery/jquery-2.2.1.js"></script>
+    <script src="/js/guessingGame.js"></script>
+
+</head>
+
+<body class="container">
+    <header>
+        <h1>Welcome to The Guessing Game</h1>
+        <h3>guess from 1 - 100!</h3>
+    </header>
+
+
+    <section id="rules">
+        <ul>
             <li>Here's How You Play:</li>
             <li>enter a number between 1 - 100 in the box below</li>
             <li>if your answer is wrong, we'll give you some feedback on it</li>
             <li>you have only 5 chances to guess</li>
             <li> you can also hit the "hint" button for some help (you can only use it ONCE)</li>
             <li>HAVE FUN!</li>
-            </ul>
-        </section>
-        
-        <section>
-        <input id="input" type="text" placeholder="enter the number here..."></input>
-        </section>
-       
-        <button class="btn buttons" id="submit" onclick="playersGuessSubmission()">submit</button>
-        <button class="btn buttons" id="hint" onclick="provideHint()">hint</button>
-        <button class="btn buttons" id="reset" onclick="playAgain()">reset</button>  
-        </section>
+        </ul>
+    </section>
 
-        <section>
-        <p id="timesLeft">5 guesses left</p>   
+    <section>
+        <input id="input" type="text" placeholder="enter the number here..."></input>
+    </section>
+
+    <button class="btn buttons" id="submit" onclick="playersGuessSubmission()">submit</button>
+    <button class="btn buttons" id="hint" onclick="provideHint()">hint</button>
+    <button class="btn buttons" id="reset" onclick="playAgain()">reset</button>
+    </section>
+
+    <section>
+        <p id="timesLeft">5 guesses left</p>
         <p id="guessedArr"></p>
         <p id="msg"></p>
-        </section>
+    </section>
 
-        <footer>
-            <p>Copyright &copy; 2016 Torng-Lin (Taffy) Chen. All rights reserved.</p>
-        </footer>
-    
-    </body>
+    <footer>
+        <p>Copyright &copy; 2016 Torng-Lin (Taffy) Chen. All rights reserved.</p>
+    </footer>
+
+</body>
+
 </html>
