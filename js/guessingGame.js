@@ -63,7 +63,7 @@ function checkGuess() {
     } else {
         $("#submit").attr("disabled", "disabled");
         $("input").attr("disabled", "disabled");
-        window.location.replace("/GussingGame/html/losersPage.html");
+        window.location.replace("/GuessingGame/html/losersPage.html");
     }
 
     $("#guessedArr").text("Numbers you've entered: " + guessArr);
