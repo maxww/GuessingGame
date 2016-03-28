@@ -41,7 +41,7 @@ function playersGuessSubmission() {
 
 function checkGuess() {
     if (playersGuess === winningNumber) {
-        window.location.replace("winnersPage.html");
+        window.location.replace("html/winnersPage.html");
     } else {
         guessMessage();
     }
@@ -62,7 +62,7 @@ function checkGuess() {
     } else {
         $("#submit").attr("disabled", "disabled");
         $("input").attr("disabled", "disabled");
-        window.location.replace("losersPage.html");
+        window.location.replace("html/losersPage.html");
     }
 
     $("#guessedArr").text("Numbers you've entered: " + guessArr);
@@ -128,7 +128,7 @@ function provideHint() {
 // Allow the "Player" to Play Again
 
 function playAgain() {
-    window.location.replace("Index.html");
+    window.location.replace("index.html");
 }
 
 
