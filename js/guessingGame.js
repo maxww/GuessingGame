@@ -41,19 +41,20 @@ function playersGuessSubmission() {
 
 function checkGuess() {
     if (playersGuess === winningNumber) {
-        window.location.replace("html/winnersPage.html");
+        window.location.replace("/html/winnersPage.html");
     } else {
-        guessMessage();
+        if (playersGuess < 1 || playersGuess > 100) {
+            $("#msg").text("you should enter a number between 1 - 100");
+        } else if (guessArr.indexOf(playersGuess) === -1) {
+            guessCounts++;
+            guessArr.push(playersGuess);
+            timesLeft--;
+            guessMessage();
+        } else {
+            $("#msg").text("you just guessed the same number...");
+        }
     }
 
-    if (guessArr.indexOf(playersGuess) === -1) {
-        guessCounts++;
-        guessArr.push(playersGuess);
-        timesLeft--;
-        guessMessage();
-    } else {
-        $("#msg").text("you just guessed the same number...");
-    }
 
     if (timesLeft > 1) {
         $("#timesLeft").text(timesLeft + " guesses left");
@@ -62,7 +63,7 @@ function checkGuess() {
     } else {
         $("#submit").attr("disabled", "disabled");
         $("input").attr("disabled", "disabled");
-        window.location.replace("html/losersPage.html");
+        window.location.replace("/html/losersPage.html");
     }
 
     $("#guessedArr").text("Numbers you've entered: " + guessArr);
@@ -128,7 +129,7 @@ function provideHint() {
 // Allow the "Player" to Play Again
 
 function playAgain() {
-    window.location.replace("index.html");
+    window.location.replace("/index.html");
 }
 
 
