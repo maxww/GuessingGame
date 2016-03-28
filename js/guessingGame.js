@@ -41,7 +41,7 @@ function playersGuessSubmission() {
 
 function checkGuess() {
     if (playersGuess === winningNumber) {
-        window.location.replace("/html/winnersPage.html");
+        window.location.replace("/GuessingGame/html/winnersPage.html");
     } else {
         if (playersGuess < 1 || playersGuess > 100) {
             $("#msg").text("you should enter a number between 1 - 100");
