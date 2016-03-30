@@ -5,7 +5,8 @@ body {
     background-color: #dddddd;
 }
 
-header {
+header,
+.rules {
     margin-top: 40px;
 }
 
@@ -13,32 +14,24 @@ h3 {
     margin-top: 30px;
 }
 
-#rules {
-    margin-top: 50px;
-}
-
-li {
-    margin: 20px auto;
-    list-style-type: none;
-}
-
-li:first-child {
+div div:first-child {
     font-weight: bold;
 }
 
-li:nth-child(odd) {
+div div:nth-child(odd) {
+    margin: 20px 0 20px 0;
     color: white;
     background-color: #b2b2b2;
     border-radius: 10px;
 }
 
-li:nth-child(even) {
+div div:nth-child(even) {
     background-color: white;
     border-radius: 10px;
 }
 
 #input {
-    margin: 25px 0 25px 0;
+    margin: 30px 0 25px 0;
     border: 1.5px solid black;
     width: 250px;
     height: 60px;
@@ -48,7 +41,7 @@ li:nth-child(even) {
 }
 
 .buttons {
-    margin-top: 5px;
+    margin: 5px 5px;
     border-style: none;
     color: white;
     font-family: Courier;
@@ -74,16 +67,14 @@ li:nth-child(even) {
 
 #msg {}
 
+footer {
+    position: relative;
+    margin: 0 auto;
+    padding: 80px;
+    font-size: 12px;
+}
+
 .winnersLosersPage {
     display: block;
     margin: 40px auto;
-}
-
-footer {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    font-size: 12px;
 }
